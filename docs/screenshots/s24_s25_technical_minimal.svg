@@ -210,14 +210,19 @@
       </g>
       <g transform="translate(222, 0)">
         <rect width="52" height="52" rx="14" fill="#151515" stroke="#262626" stroke-width="1.2"/>
-        <circle cx="26" cy="26" r="11" stroke="#ecebe8" stroke-width="1.4" fill="none"/>
-        <line x1="15" y1="26" x2="37" y2="26" stroke="#5f5b55" stroke-width="1.2"/>
+        <!-- Browser / Globe -->
+        <circle cx="26" cy="26" r="11" stroke="#ecebe8" stroke-width="1.5" fill="none"/>
+        <line x1="15" y1="26" x2="37" y2="26" stroke="#9a968f" stroke-width="1.2"/>
+        <path d="M 26,15 C 20.5,18.5 20.5,33.5 26,37 M 26,15 C 31.5,18.5 31.5,33.5 26,37" stroke="#9a968f" stroke-width="1.2" fill="none"/>
         <circle cx="26" cy="26" r="2" fill="#ff5a1f"/>
       </g>
       <g transform="translate(296, 0)">
         <rect width="52" height="52" rx="14" fill="#151515" stroke="#262626" stroke-width="1.2"/>
-        <circle cx="26" cy="26" r="5" stroke="#ecebe8" stroke-width="1.4" fill="none"/>
-        <circle cx="26" cy="26" r="2" fill="#ff5a1f"/>
+        <!-- Camera -->
+        <path d="M 35,34 H 17 a 2.5,2.5 0 0,1 -2.5,-2.5 V 22 a 2.5,2.5 0 0,1 2.5,-2.5 h 3.5 l 2,-2.5 h 7 l 2,2.5 H 35 a 2.5,2.5 0 0,1 2.5,2.5 v 9.5 a 2.5,2.5 0 0,1 -2.5,2.5 Z" stroke="#ecebe8" stroke-width="1.5" stroke-linejoin="round" fill="none"/>
+        <circle cx="26" cy="26.5" r="4.5" stroke="#ecebe8" stroke-width="1.4" fill="none"/>
+        <circle cx="26" cy="26.5" r="1.8" fill="#5f5b55"/>
+        <circle cx="33" cy="22" r="1.5" fill="#ff5a1f"/>
       </g>
     </g>
 
