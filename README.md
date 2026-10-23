@@ -9,10 +9,10 @@
 
 ## Flagship Showcase & Previews
 
-| 01. S24 / S25 Edge Technical Minimal | 02. Welcome Screen | 03. Unlocked Settings |
+| 01. S24 / S25 Edge Technical Minimal | 02. S24 / S25 App Drawer (120Hz) | 03. Unlocked Settings & Privacy |
 | :---: | :---: | :---: |
-| <img src="docs/screenshots/s24_s25_technical_minimal.svg" width="280" alt="S24/S25 Technical Minimal"/> | <img src="docs/screenshots/real_01_welcome.png" width="280" alt="Welcome Screen"/> | <img src="docs/screenshots/real_03_settings.png" width="280" alt="Settings Screen"/> |
-| **Nothing / Teenage Engineering Theme**<br>120Hz LTPO, dot-grid OLED, hairline icons | **Real Android Capture**<br>Rebranded OpenNova welcome flow | **Prime Unlocked**<br>Telemetry stripped, all features active |
+| <img src="docs/screenshots/s24_s25_technical_minimal.svg" width="280" alt="S24/S25 Technical Minimal"/> | <img src="docs/screenshots/02-app-drawer.svg" width="280" alt="App Drawer Screen"/> | <img src="docs/screenshots/03-privacy-settings.svg" width="280" alt="Settings Screen"/> |
+| **Nothing / Teenage Engineering Theme**<br>120Hz LTPO, dot-grid OLED, hairline icons | **Fast-Scroll Navigation**<br>Zero bloat, categorized tabs, instant 120Hz fling | **100% Unlocked Prime**<br>Telemetry stripped, paywall eliminated |
 
 > 💡 Open [`docs/screenshots/preview.html`](docs/screenshots/preview.html) in your browser for the full high-resolution responsive showcase.
 

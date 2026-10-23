@@ -231,7 +231,7 @@ function buildSettingsScreen() {
     <!-- App Bar -->
     <g transform="translate(44, 72)">
       <path d="M19 12H5 M12 19l-7-7 7-7" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-      <text x="36" y="16" fill="#ffffff" font-family="-apple-system, sans-serif" font-size="18" font-weight="600">Nova Settings</text>
+      <text x="36" y="16" fill="#ffffff" font-family="-apple-system, sans-serif" font-size="18" font-weight="600">OpenNova Settings</text>
       <circle cx="330" cy="11" r="14" fill="#ffffff" fill-opacity="0.06" />
       <circle cx="330" cy="11" r="5" stroke="#ffffff" stroke-width="1.5" fill="none" />
     </g>
@@ -321,8 +321,8 @@ function buildSettingsScreen() {
       <rect width="364" height="60" rx="14" fill="#14171e" stroke="#22c55e" stroke-opacity="0.4" stroke-width="1" />
       <circle cx="34" cy="30" r="12" fill="#22c55e" fill-opacity="0.2" />
       <path d="M28 30l4 4 8-8" stroke="#22c55e" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" />
-      <text x="58" y="27" fill="#ffffff" font-family="-apple-system, sans-serif" font-size="13" font-weight="600">NovaPaywallActivity Bypass</text>
-      <text x="58" y="44" fill="#94a3b8" font-family="-apple-system, sans-serif" font-size="11">Prime check permanently returns true</text>
+      <text x="58" y="27" fill="#ffffff" font-family="-apple-system, sans-serif" font-size="13" font-weight="600">Paywall Permanently Eliminated</text>
+      <text x="58" y="44" fill="#94a3b8" font-family="-apple-system, sans-serif" font-size="11">Zero subscriptions • 100% Free &amp; Open Source</text>
     </g>
   `;
   return getDeviceFrame(inner);
