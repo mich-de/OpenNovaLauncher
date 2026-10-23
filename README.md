@@ -1,59 +1,60 @@
-# OpenNovaLauncher
+# OpenNova Launcher
 
-> Open reverse-engineering, de-bloat, and preservation workspace for Nova Launcher.
+> High-performance, customizable, and telemetry-free Android desktop experience.
 
 **Version**: `1.0.0`
 
 ---
 
-## Simulated Previews
+## Real Device Captures
 
-| 01. Desktop Workspace | 02. App Drawer | 03. Privacy & Prime Settings |
+Screenshots captured from the running patched APK (`OpenNova Launcher v1.0.0`):
+
+| 01. First Run Setup | 02. Welcome Screen | 03. Settings & Unlocked Features |
 | :---: | :---: | :---: |
-| <img src="docs/screenshots/01-home-screen.svg" width="260" alt="Home Screen"/> | <img src="docs/screenshots/02-app-drawer.svg" width="260" alt="App Drawer"/> | <img src="docs/screenshots/03-privacy-settings.svg" width="260" alt="Privacy Settings"/> |
-| Subgrid layout, search pill, dock | Fast-scroll alphabet & tab categories | Telemetry stripped, Prime unlocked |
+| <img src="docs/screenshots/real_01_welcome.png" width="300" alt="Welcome OpenNova"/> | <img src="docs/screenshots/real_01_onboarding.png" width="300" alt="Onboarding"/> | <img src="docs/screenshots/real_03_settings.png" width="300" alt="Settings"/> |
+| Rebranded Welcome dialog | Onboarding flow | Clean launcher settings |
 
-> 💡 Open [`docs/screenshots/preview.html`](docs/screenshots/preview.html) in your browser for the full high-resolution responsive showcase.
+> 🎨 Looking for stylized vector mockups? See [`mockups/OpenNovaLauncherColor/`](mockups/OpenNovaLauncherColor/) and [`docs/screenshots/preview.html`](docs/screenshots/preview.html).
 
 ---
 
-## Overview
+## De-bloat & Reverse Engineering Changelog
 
-OpenNovaLauncher is a research and preservation effort focused on analyzing, documenting, and reconstructing core launcher components from Nova Launcher:
-- **Telemetry Stripped**: Full removal of Branch Metrics and Amplitude tracking SDKs.
-- **Paywall Bypass**: De-compilation and neutralization of `NovaPaywallActivity`.
-- **Core Isolation**: Clean extraction of `Workspace`, `Folder`, `FolderIcon`, and `NovaLauncher` lifecycle.
+### 1. Prime / Premium Features Unlocked
+- **EntitlementState Neutralized (`cy/d.smali`)**: Constructor forced to permanently instantiate with `hasPrime = true` and `hasPlus = true`.
+- **Preference Guard Unlocked (`e10/g2.smali`)**: Prime gating flag (`h:Z`) hardwired to `true` across all preference fragments (Desktop, Drawer, Look & Feel, Gestures).
+- **Paywall Auto-Bypass (`NovaPaywallActivity.smali`)**: `onCreate` immediately calls `finish()` and dismisses.
+
+### 2. Telemetry & Spyware Stripped
+- **Amplitude Tracking Neutralized**: All `Amplitude.track(...)` methods neutralized with zero network dispatch.
+- **Session Replay Removed**: `amp-rrweb.js` (DOM/touch recording) truncated and eliminated.
+- **Branch Metrics Stripped**: Background aggregation, query services, ping services, and ADB dump providers removed from `AndroidManifest.xml`.
+- **Facebook Audience Network Removed**: Ad activity and content provider removed.
+- **Instabridge Carrier / eSIM Bloat Removed**: Carrier config service and eSIM share provider removed.
+- **Google / Firebase Telemetry Disabled**: Analytics & Crashlytics collection flags forced to `false`.
+
+---
 
 ## Repository Structure
 
 ```
 ├── docs/
-│   └── screenshots/      # High-fidelity simulated UI mockups (SVG, PNG, preview.html)
-│       ├── 01-home-screen.svg
-│       ├── 02-app-drawer.svg
-│       ├── 03-privacy-settings.svg
-│       └── preview.html
+│   └── screenshots/               # Real Android captures & preview gallery
+│       ├── real_01_welcome.png    # Live capture: "Benvenuto in OpenNova Launcher"
+│       ├── real_01_onboarding.png # Live capture: FirstRun setup
+│       ├── real_02_desktop.png    # Live capture: Desktop workspace
+│       └── real_03_settings.png   # Live capture: SettingsActivity
+├── mockups/
+│   └── OpenNovaLauncherColor/     # Stylized vector device mockups (SVG / PNG)
 ├── re/
-│   ├── nova.apk          # Reference base APK
-│   ├── nova-src/         # JADX decompiled sources
-│   ├── nova-src2/        # Alternative decompile pass
-│   └── single/           # Isolated core components for inspection
-│       ├── NovaLauncher.java
-│       ├── NovaApplication.java
-│       ├── NovaPaywallActivity.java
-│       ├── Workspace.java
-│       ├── Folder.java
-│       └── FolderIcon.java
+│   ├── OpenNovaLauncher.apk       # Patched, de-bloated, Prime-unlocked, aligned & signed APK
+│   ├── nova.apk                   # Original reference base APK
+│   ├── nova-src/                  # Decompiled sources
+│   └── single/                    # Isolated core classes
 └── README.md
 ```
 
-## Milestone v1.0.0
-
-- [x] Base APK acquisition and JADX decompile pipeline setup.
-- [x] Extraction and isolation of core UI and lifecycle classes.
-- [x] Tracking and paywall boundary identification.
-- [x] UI mockups and device simulation assets.
-
 ## Disclaimer
 
-This repository is for educational, interoperability, and software preservation purposes under applicable reverse-engineering fair use provisions. All original trademarks belong to their respective owners.
+This repository is an independent open development and software preservation project for educational and interoperability purposes.
