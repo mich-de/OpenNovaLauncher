@@ -48,13 +48,49 @@ Inspired by the signature aesthetic of [`/technical-minimal-web`](https://mich-d
 - **`e10/g2.smali` (Preference Guard)**: Prime gating flag (`h:Z`) hardwired to `true` across all preference fragments.
 - **`NovaPaywallActivity.smali`**: Neutralized; auto-finishes immediately upon creation.
 
-### 2. Telemetry & Spyware Stripped
-- **Amplitude Tracking Neutralized**: All `Amplitude.track(...)` methods neutralized with zero network dispatch.
-- **Session Replay Removed**: `amp-rrweb.js` (DOM/touch recording) truncated and eliminated.
-- **Branch Metrics Stripped**: Background aggregation, query services, ping services, and ADB dump providers removed from `AndroidManifest.xml`.
-- **Facebook Audience Network Removed**: Ad activity and content provider removed.
-- **Instabridge Carrier / eSIM Bloat Removed**: Carrier config service and eSIM share provider removed.
-- **Google / Firebase Telemetry Disabled**: Analytics & Crashlytics collection flags forced to `false`.
+### 2. Telemetry, Ad Networks & Spyware Stripped (14 Distinct Vectors)
+Every third-party ad network, telemetry engine, carrier bloatware, and spyware SDK has been excised from both `AndroidManifest.xml` and bytecode execution:
+
+1. **Branch Metrics & Search (`io.branch`, `nova.branch`)**:
+   - Neutralized search sponsored ads (`HeroAd.p(...)` tracking ping zeroed).
+   - Neutralized suggested install promotions (`SuggestedInstalls.m(...)` zeroed).
+   - Removed all Branch aggregation, query, and ADB dump services from manifest.
+2. **Amplitude Analytics & Session Replay (`com.amplitude`)**:
+   - Neutralized all `Amplitude.track(...)` dispatch methods (`.locals 0; return-object p0`).
+   - Truncated `amp-rrweb.js` DOM/touch recording script.
+3. **ByteDance / Pangle Ad SDK (`com.bytedance.adsdk`, `com.bykv.vk`)**:
+   - Removed 16 `TT*` ad activities (`TTFullScreenVideoActivity`, `TTRewardVideoActivity`, etc.).
+   - Removed Pangle SDK version meta-data.
+4. **ByteDance APM Insight (`com.apm.insight`)**:
+   - Neutralized `ApmHelper.initAPM()`, `initApm(...)`, and crash reporters.
+5. **Digital Turbine Ignite (`com.digitalturbine.ignite`)**:
+   - Neutralized silent background app installation and carrier preload AIDL hooks (`IIgniteServiceAPI->install(...)`).
+6. **Fyber / Inneractive Ad Marketplace (`com.fyber.inneractive`)**:
+   - Removed 5 fullscreen ad and store activities from manifest.
+   - Neutralized SDK initialization and authentication routines.
+7. **Moloco Ad SDK (`com.moloco.sdk`)**:
+   - Removed 4 ad renderers (`VastActivity`, `StaticAdActivity`, `MraidActivity`, `FullscreenWebviewActivity`).
+   - Neutralized all `Moloco.initialize(...)` entry points.
+8. **Liftoff / Vungle Ads (`com.vungle.ads`)**:
+   - Removed `VungleActivity` and auto-boot `VungleProvider` from manifest.
+   - Neutralized `VungleAds.init(...)`.
+9. **Meta / Facebook Audience Network (`com.facebook.ads`, `smali_assets/audience_network`)**:
+   - Neutralized `AudienceNetworkAds.initialize(...)` and `isInitialized(...)`.
+   - Stripped Facebook ad activities and content providers.
+10. **Instabridge Carrier & AI Bloat (`com.instabridge`)**:
+    - Stripped all Instabridge activities (`MobileFlowActivity`, `AiChatActivity`, etc.) and file providers.
+11. **Novalytics Internal Telemetry (`com.novalauncher.novalytics`)**:
+    - Neutralized `ReportSubmitWork.doWork` to immediately return `Result.success()` with zero upload.
+12. **IAB Open Measurement Ad Tracking (`com.iab.omid.library`)**:
+    - Ad impression verification and viewability listeners disconnected.
+13. **Google Play DataTransport & AdMob Mediation (`com.google.android.datatransport`, `com.google.android.gms.ads`)**:
+    - Stripped `APPLICATION_ID` meta-data, `TransportBackendDiscovery`, and job scheduler services.
+14. **Intrusive Permissions Excised**:
+    - Stripped `AD_ID` (`com.google.android.gms.permission.AD_ID`), `ACCESS_ADSERVICES_AD_ID`, `ACCESS_ADSERVICES_ATTRIBUTION`.
+    - Stripped install referrer tracking (`BIND_GET_INSTALL_REFERRER_SERVICE`).
+    - Stripped billing paywall permission (`com.android.vending.BILLING`).
+    - Stripped carrier bloat permissions (`WRITE_EMBEDDED_SUBSCRIPTIONS`, `MODIFY_PHONE_STATE`, `READ_BASIC_PHONE_STATE`).
+    - Stripped Amazon tracking (`com.amazon.privacypass.ATTEST`).
 
 ---
 
