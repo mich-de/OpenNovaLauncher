@@ -41,6 +41,28 @@ Inspired by the signature aesthetic of [`/technical-minimal-web`](https://mich-d
 
 ---
 
+## Morphe Patcher Integration (Custom Patch Source)
+
+OpenNovaLauncher is fully configured as a **Custom Patch Source** for [Morphe Manager](https://github.com/MorpheApp/morphe-manager):
+
+### 📲 Add to Morphe Manager
+- **One-Tap Deep Link**: [Add to Morphe](https://morphe.software/add-source?github=mich-de/OpenNovaLauncher)
+- **Manual Setup in Morphe Manager**:
+  1. Open **Morphe Manager** on your Android device.
+  2. Go to **Settings** ➔ **Sources** ➔ **Add Source**.
+  3. Enter GitHub repository: `mich-de/OpenNovaLauncher` (or `mich-de/opennovalauncher-rebrand`).
+  4. Confirm import: `patches-list.json` and `patches-bundle.json` will be fetched automatically.
+
+### 🧩 Available Morphe Patches (`com.teslacoilsw.launcher`)
+| Patch | Category | Description | Default |
+| :--- | :--- | :--- | :---: |
+| **Unlock Prime** | Prime | Permanently unlocks all Nova Launcher Prime features without license checks | ✅ |
+| **Remove 14 Spyware & Ad Networks** | Privacy | Excises Branch, ByteDance Pangle, APM Insight, Digital Turbine Ignite, Fyber, Moloco, Vungle, Amplitude, Sentry | ✅ |
+| **Eliminate Paywall** | Prime | Permanently suppresses `NovaPaywallActivity` and Compose subscription dialogs | ✅ |
+| **S24/S25 Hardware & Technical Minimal** | UI & Hardware | Optimizes for 120Hz LTPO display physics, camera cutout, and Nothing dot-matrix theme | ✅ |
+
+---
+
 ## De-bloat & Reverse Engineering Summary
 
 ### 1. Prime / Premium Features Unlocked
