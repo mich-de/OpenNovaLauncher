@@ -46,11 +46,11 @@ Inspired by the signature aesthetic of [`/technical-minimal-web`](https://mich-d
 OpenNovaLauncher is fully configured as a **Custom Patch Source** for [Morphe Manager](https://github.com/MorpheApp/morphe-manager):
 
 ### 📲 Add to Morphe Manager
-- **One-Tap Deep Link**: [Add to Morphe](https://morphe.software/add-source?github=mich-de/OpenNovaLauncher)
+- **One-Tap Deep Link**: [Add to Morphe](https://morphe.software/add-source?github=mich-de/openlauncher)
 - **Manual Setup in Morphe Manager**:
   1. Open **Morphe Manager** on your Android device.
   2. Go to **Settings** ➔ **Sources** ➔ **Add Source**.
-  3. Enter GitHub repository: `mich-de/OpenNovaLauncher` (or `mich-de/opennovalauncher-rebrand`).
+  3. Enter GitHub repository: `mich-de/openlauncher`.
   4. Confirm import: `patches-list.json` and `patches-bundle.json` will be fetched automatically.
 
 ### 🧩 Available Morphe Patches (`com.teslacoilsw.launcher`)
